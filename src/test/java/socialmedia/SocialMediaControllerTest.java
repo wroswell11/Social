@@ -99,8 +99,9 @@ class SocialMediaControllerTest {
     @Test
     public void assembleTimeline_displaysTimelineAsHTML() {
         when(mockService.getTimestamp(anyString())).thenReturn("3 hour(s) ago").thenReturn("1 day(s) ago");
+        when(mockService.getCurrentUser()).thenReturn(testUser);
 
-        assertEquals("<br><h3>Timeline: </h3>It's a good day to code (3 hour(s) ago)<br>Testing said code can be rough (1 day(s) ago)<br>", spyController.assembleTimeline(testUser));
+        assertEquals("<br><h3>Timeline: </h3><form action=\"publishToTimeline\" method=\"get\"><label for=\"item\">Publish: </label><input type=\"text\" id=\"item\" name=\"item\"><input type=\"submit\" value=\"Submit\"></form>It's a good day to code (3 hour(s) ago)<br>Testing said code can be rough (1 day(s) ago)<br>", spyController.assembleTimeline(testUser));
     }
 
     @Test
@@ -119,11 +120,11 @@ class SocialMediaControllerTest {
     public void assembleHomeHeader_returnsHeaderHTML() {
         when(mockService.getCurrentUser()).thenReturn(testUser);
 
-        assertEquals("<h2>Test</h2><a href=\"http://localhost:8080/profile?uName=Test\">Profile</a>", spyController.assembleHomeHeader(testUser));
+        assertEquals("<h2>Test</h2><form action=\"profile\" method=\"get\"><label for=\"uName\">Search: </label><input type=\"text\" id=\"uName\" name=\"uName\"><input type=\"submit\" value=\"Submit\"></form><a href=\"http://localhost:8080/profile?uName=Test\">Profile</a>", spyController.assembleHomeHeader(testUser));
     }
 
     @Test
     public void assembleAggregateTimeline_returnsAggregateTimelineAsHTML() {
-        assertEquals("<br><h3>Timeline: </h3>", spyController.assembleAggregateTimeline());
+        assertEquals("<br><h3>Timeline: </h3><form action=\"publishToTimeline\" method=\"get\"><label for=\"item\">Publish: </label><input type=\"text\" id=\"item\" name=\"item\"><input type=\"submit\" value=\"Submit\"></form>", spyController.assembleAggregateTimeline());
     }
 }

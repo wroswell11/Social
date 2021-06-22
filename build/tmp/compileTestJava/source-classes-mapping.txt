@@ -1,4 +1,0 @@
-socialmedia/SocialMediaControllerTest.java
- socialmedia.SocialMediaControllerTest
-socialmedia/SocialMediaServiceTest.java
- socialmedia.SocialMediaServiceTest

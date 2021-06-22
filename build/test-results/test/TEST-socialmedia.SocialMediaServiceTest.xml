@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="socialmedia.SocialMediaServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-22T23:12:22" hostname="DESKTOP-808THQ7" time="1.031">
-  <properties/>
-  <testcase name="getAggregateTimelineMap_setsUpAggregateMap()" classname="socialmedia.SocialMediaServiceTest" time="1.031"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
